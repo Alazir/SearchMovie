@@ -21,7 +21,9 @@ def request_movie(my_id, key_token, search):
         url = "http://www.omdbapi.com/?i=" + my_id + "&apikey=" + key_token + "&s=" + search
         response = requests.get(url)
         response.raise_for_status()
-        result = response.json()['Search'][0]['Title']
+        result = ''
+        for item in response.json()['Search']:
+            result += item['Title'] + '\n'
 
         return result
     except requests.exceptions.HTTPError as error:
