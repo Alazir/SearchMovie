@@ -1,0 +1,35 @@
+MainLayout:
+
+<MainLayout>:
+    cols: 1
+    size_hint: 0.6, 0.7
+    pos_hint: { 'center_x': .5, 'center_y': 0.5 }
+
+    Image:
+        source: "logo.png"
+    
+    Label:
+        text: "Type your query to get a list of movies:"
+        font_size: 18
+        color: "#FFBD59"
+    
+    TextInput:
+        id: input
+        multiline: False
+        padding: 10, 20
+        size_hint: 1, 0.5
+
+    Button:
+        text: "Run your query"
+        background_color: "#FFBD59"
+        background_normal: ""
+        bold: True
+        color: "#000000"
+        size_hint: 1, 0.5
+        #on_press: root.on_button_click()
+        on_press: app.on_button_click()
+
+    Label:
+        id: result
+        text: ""
+
